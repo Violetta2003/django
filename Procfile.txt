@@ -1,1 +1,1 @@
-web: gunicorn breakNews.wsgi
+web: gunicorn Donut.wsgi
