@@ -1,0 +1,24 @@
+{% extends '../index.html' %}
+
+{% block content %}
+<div class="row container">
+    <form class="col s12 form" method="POST">
+        {% csrf_token %}
+      <div class="row ">
+        <div class="input-field col s12">
+          <input placeholder="Название статьи" id="title" name="title" type="text" class="validate" required>
+          <label for="title">Название статьи</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="news" placeholder="Текст статьи" type="text" name="news" class="validate" required>
+          <label for="news">Тест статьи</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="url" placeholder="URL - картинки" type="text" name="imgURL" class="validate">
+          <label for="url">URL Картинки</label>
+        </div>
+      </div>
+      <button class="btn" type="submit">Отправить</button>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends '../index.html' %}
+
+{% block content %}
+
+<div class="card-wrapper container col s12">
+    {% if news %}
+    {% for item in news %}
+    
+      <div class="row col 12 news-row">
+          <div class="col 12 news">
+            <div class="card blue">
+              <div class="card-image">
+                <img src="{{item.imgURL}}" alt="">
+                <span class="card-title">{{ item.title }}</span>
+              </div>
+              <div class="card-content">
+                <p>{{ item.news }}</p>
+              </div>
+              <span>Добавленно {{ item.date | date:"d-m-d" }} пользователем <a href="/news/{{item.user}}">{{item.user}}</a>. Категория <b>{{item.category}}</b></span>
+              <div class="card-action">
+                <a href="/news/{{item.id}}">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+          {% endfor %}
+      <div class="row col 12 news-row">
+        {% block pagination %}
+          {% if is_paginated %}
+          <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Назад</a>
+                {% endif %}
+      
+                <span class="current">
+                    Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+                </span>
+      
+                {% if page_obj.has_next %}
+                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Вперед</a>
+                {% endif %}
+            </span>
+          </div>
+        {% endif %}
+      
+      {% endblock %}
+        </div>
+    {% else %}
+        <p>Новостей пока нет(</p>
+    {% endif %}
+    
+</div>
+
+
+{% endblock %}

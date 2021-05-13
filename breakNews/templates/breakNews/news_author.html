@@ -1,0 +1,34 @@
+{% extends '../index.html' %}
+
+{% block content %}
+
+<div class="card-wrapper container col s12">
+    {% if news %}
+        {% for item in news %}
+        
+        <div class="row col 12 news-row">
+            <div class="col 12 news">
+                <div class="card blue">
+                <div class="card-image">
+                    <img src="{{item.imgURL}}" alt="">
+                    <span class="card-title">{{ item.title }}</span>
+                </div>
+                <div class="card-content">
+                    <p>{{ item.news }}</p>
+                </div>
+                <span>Добавленно {{ item.date | date:"d-m-d" }} пользователем <b>{{item.user}}</b>. Категория <b>{{item.category}}</b></span>
+                <div class="card-action">
+                    <a href="/news/{{item.id}}">Подробнее</a>
+                </div>
+                </div>
+            </div>
+            </div>
+            <hr>
+        {% endfor %}
+
+    {% endif %}
+
+    </div>
+    
+    
+{% endblock %}
