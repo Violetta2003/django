@@ -1,1 +1,1 @@
-web: gunicorn subfolder/Donut.wsgi
+web: gunicorn Donut.wsgi
