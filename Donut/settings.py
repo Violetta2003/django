@@ -26,7 +26,7 @@ SECRET_KEY = 'rf4vjy4)szc@yxjp3*mdkrk1o!@*0qth^#2ui#36lt2!ocib+a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://break-news.herokuapp.com/']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Application definition
