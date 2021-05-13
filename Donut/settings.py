@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-db_from_env = dj-database-url.config()
-DATABASE['default'].update(db_from_env)
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -124,3 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
